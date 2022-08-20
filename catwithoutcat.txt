@@ -1,0 +1,31 @@
+https://blog.yjl.im/2011/01/running-cat-without-cat.html
+
+# Pure lame, period.
+echo "$(<filename)"
+printf '%s' "$(<filename)"
+
+# Or sed 's/grep/sed/'
+grep '' filename
+grep '' <filename
+
+# _Awk_ward...
+awk '{print $0}' filename
+
+# Head is tail, tail is head, what is what?
+head -n -0 filename
+tail -n +0 filename
+
+# Flip! Flip! Can we be dumber?
+tac filename | tac
+rev filename | rev
+
+# The best one to me, but it could be disaster if you forget to type
+# redirection < before filename.
+tee <filename
+
+# !#$%^&* Serioius?
+OLDIDS="$IFS"; IFS=$'\n'; while read line; do echo "$line"; done <filename; IFS="$OLDIFS"
+
+# Pi... pie?
+python -c 'import sys; f=open(sys.argv[1]); sys.stdout.write(f.read()); f.close()' filename
+python -c 'import sys; sys.stdout.write(sys.stdin.read())' <filename

